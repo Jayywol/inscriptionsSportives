@@ -3,13 +3,9 @@ package testjUnit;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.time.LocalDate;
-import java.util.TreeSet;
-
 import org.junit.Test;
  
 import inscriptions.Competition;
-import inscriptions.Equipe;
 import inscriptions.Inscriptions;
 import inscriptions.Personne;
 
@@ -33,14 +29,8 @@ public class testCompetition
 	}
 	
 	@Test
-	public void testInscriptionsOuvertes()
-	{
-		fail("Not yet implemented"); //TODO
-	}
-	
-	@Test
 	public void testGetDateCloture()
 	{
-		assertEquals("", LocalDate.getDateCloture());
+		//assertEquals("", flechettes.getDateCloture());
 	}
 }
