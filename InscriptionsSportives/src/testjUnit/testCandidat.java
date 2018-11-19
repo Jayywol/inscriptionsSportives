@@ -1,6 +1,9 @@
 package testjUnit;
 
 import static org.junit.Assert.*;
+
+import java.util.Set;
+
 import org.junit.Test;
 
 import inscriptions.Competition;
@@ -12,6 +15,7 @@ public class testCandidat
 	Inscriptions inscriptions = Inscriptions.getInscriptions();
 	Competition flechettes = inscriptions.createCompetition("Mondial de flechettes", null, false);
 	Personne boris = inscriptions.createPersonne("Boris", "le Hachoir", "ytreza");
+	
 	@Test
 	public void testGetNom()
 	{
