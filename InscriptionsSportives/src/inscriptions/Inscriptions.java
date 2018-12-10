@@ -7,7 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Collections;
-import java.time.LocalDate;
+import java.util.Date;
+//import java.time.LocalDate;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -78,6 +79,8 @@ public class Inscriptions implements Serializable
 		return Collections.unmodifiableSortedSet(equipes);
 	}
 
+	
+	
 	/**
 	 * Créée une compétition. Ceci est le seul moyen, il n'y a pas
 	 * de constructeur public dans {@link Competition}.
@@ -85,14 +88,16 @@ public class Inscriptions implements Serializable
 	 * @param dateCloture
 	 * @param enEquipe
 	 * @return
-	 */
+	 */ 
 	
-	public Competition createCompetition(String nom, LocalDate dateCloture, boolean enEquipe)
+	public Competition createCompetition(String nom, Date dateCloture, boolean enEquipe)
 	{
 		Competition competition = new Competition(this, nom, dateCloture, enEquipe);
 		competitions.add(competition);
+		
 		return competition;
 	}
+	
 
 	/**
 	 * Créée une Candidat de type Personne. Ceci est le seul moyen, il n'y a pas
@@ -260,4 +265,6 @@ public class Inscriptions implements Serializable
 			System.out.println("Sauvegarde impossible." + e);
 		}
 	}
+
+	
 }
