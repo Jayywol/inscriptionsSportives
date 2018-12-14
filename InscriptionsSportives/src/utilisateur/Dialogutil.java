@@ -48,8 +48,8 @@ public class Dialogutil {
 	private Menu menuCompetitions()
 	{
 		Menu menu = new Menu("Gérer les compétitions", "1");
-	    menu.add(afficherCompetitions());
 		menu.add(ajouterCompetition());
+		menu.add(afficherCompetitions());
 		menu.add(selectionnerCompetition());
 		menu.addBack("q");
 		return menu;
@@ -104,16 +104,11 @@ public class Dialogutil {
 	private Menu menuEquipes()
 	{
 		Menu menu = new Menu("Gérer les équipes", "2");
-		menu.add(afficherEquipes());
 		menu.add(ajouterEquipe());
+		menu.add(afficherEquipes());
 		//menu.add(selectionnerEquipe());
 		menu.addBack("q");
 		return menu;
-	}
-	
-	private Option ajouterEquipe()
-	{
-		return new Option("Ajouter une équipe", "a", () -> {inscriptions.createEquipe(getString("nom : "));});
 	}
 	
 	private Option afficherEquipes()
@@ -121,25 +116,32 @@ public class Dialogutil {
 		return new Option("Afficher les équipes", "l", () -> {System.out.println(inscriptions.getEquipes());});
 	}
 	
+	private Option ajouterEquipe()
+	{
+		return new Option("Ajouter une équipe", "2", () -> {inscriptions.createEquipe(getString("nom : "));});
+	}
+	
+
+	
 	private Menu menuPersonnes()
 	{
 		Menu menu = new Menu("Gérer les personnes","3");
-		menu.add(afficherPersonnes());
 		menu.add(ajouterPersonne());
+		menu.add(afficherPersonnes());
 		//menu.add(selectionnerPersonne());
 		menu.addBack("q");
 		return menu;
 		
 	}	
 	
-	private Option ajouterPersonne()
-	{	
-		return new Option("Ajouter une personne", "a", () -> {inscriptions.createPersonne(getString("nom : "),getString("prenom : "),getString("mail : "));});
-	}
-	
 	private Option afficherPersonnes()
 	{
 		return new Option("Afficher les personnes", "l", () -> {System.out.println(inscriptions.getPersonnes());});
+	}
+	
+	private Option ajouterPersonne()
+	{	
+		return new Option("Ajouter une personne", "2", () -> {inscriptions.createPersonne(getString("nom : "),getString("prenom : "),getString("mail : "));});
 	}
 	
 	
