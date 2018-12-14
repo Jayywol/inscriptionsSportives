@@ -92,14 +92,31 @@ public class Dialogutil {
 	{
 		Menu menu = new Menu("Editer " + competition.getNom());
 		//menu.add(afficherCandidats(competition));
-		//menu.add(ajouterPersonneCompetition(competition));
-		//menu.add(ajouterEquipeCompetition(competition));
+		menu.add(ajouterPersonneCompetition(competition));
+		menu.add(ajouterEquipeCompetition(competition));
 		//menu.add(supprimerCandidat(competition));
 		//menu.add(modifierCompetition(competition));
 		//menu.add(supprimer(competition));
 		menu.addBack("q");
 		return menu;
 	}
+	
+	private Menu ajouterPersonneCompetition(Competition competition)
+	{
+		return new List<Personne>("Ajouter une personne", "p", 
+				() -> new ArrayList<>(inscriptions.getPersonnes()),
+				(index, element) -> {competition.add(element);}
+				);
+	}
+	
+	private Menu ajouterEquipeCompetition(Competition competition)
+	{
+		return new List<Equipe>("Ajouter une équipe", "a", 
+				() -> new ArrayList<>(inscriptions.getEquipes()),
+				(index, element) -> {competition.add(element);}
+				);
+	}
+	
 	         
 	private Menu menuEquipes()
 	{
