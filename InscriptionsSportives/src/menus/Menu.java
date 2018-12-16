@@ -20,6 +20,7 @@ public class Menu {
 			
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
+			sc.nextLine();
 			
 			Personne personne;
 			Equipe equipe;
@@ -29,8 +30,11 @@ public class Menu {
 				case 1 : 
 					System.out.println("rentrer le nom de la compétition:");
 					String nom = sc.nextLine();
+					sc.nextLine();
 					System.out.println("Compétion en équipe : oui/non");
 					String enEquipe = sc.nextLine();
+					
+					
 					if (enEquipe == "oui") {
 						competition = inscriptions.createCompetition(nom, null, true); 
 					} else {
@@ -40,13 +44,15 @@ public class Menu {
 				case 2 : 
 					System.out.println("rentrer le nom de l'équipe:");
 					String nomEquipe = sc.nextLine();
-					equipe = inscriptions.createEquipe("Les Manouches");
+					equipe = inscriptions.createEquipe(nomEquipe);
 					break;
 				case 3 :
 					System.out.println("rentrer le nom de la personne:");
 					String nomPersonne = sc.nextLine();
+					sc.nextLine();
 					System.out.println("rentrer le prénom de la personne:");
 					String prenomPersonne = sc.nextLine();
+					sc.nextLine();
 					System.out.println("rentrer l'email de la personne:");
 					String emailPersonne = sc.nextLine();
 					
