@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//FR" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+	<class name="Competition" table="competition">
+		<id name="idCompetition" type="int" column="idCompetition">
+			<generator class="native" />
+		</id>
+		<property name="nomCompetition" type="string" not-null="true" />
+		<property name="dateClo" type="date" />
+	</class>
+
+	<class name="Equipe" table="equipe">
+		<id name="idCandidat" type="int" column="idCandidat">
+			<generator class="native" />
+		</id>
+		<property name="nom" type="string" not-null="true" />
+	</class>
+
+	<class name="Personne" table="personne">
+		<id name="idCandidat" type="int" column="idCandidat">
+			<generator class="native" />
+		</id>
+		<property name="nom" type="string" not-null="true" />
+		<property name="prenom" type="string" not-null="true" />
+		<property name="mail" type="string" not-null="true" />
+	</class>
+</hibernate-mapping>
