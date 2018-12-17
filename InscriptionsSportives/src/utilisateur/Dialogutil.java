@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import commandLineMenus.*;
 import commandLineMenus.rendering.examples.util.InOut;
 import static commandLineMenus.rendering.examples.util.InOut.getString;
+import static commandLineMenus.rendering.examples.util.InOut.getInt;
 import inscriptions.*;
 
 
@@ -71,11 +72,6 @@ public class Dialogutil {
 			}
 		});
 	}
-	
-	private int getInt(String string) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	private Option afficherCompetitions()
 	{
@@ -91,19 +87,17 @@ public class Dialogutil {
 	private Menu editerCompetition(Competition competition)
 	{
 		Menu menu = new Menu("Editer " + competition.getNom());
-		//menu.add(afficherCandidats(competition));
 		menu.add(ajouterPersonneCompetition(competition));
 		menu.add(ajouterEquipeCompetition(competition));
-		//menu.add(supprimerCandidat(competition));
-		//menu.add(modifierCompetition(competition));
-		//menu.add(supprimer(competition));
+		menu.add(modifierCompetition(competition));
+		menu.add(supprimer(competition));
 		menu.addBack("q");
 		return menu;
 	}
 	
 	private Menu ajouterPersonneCompetition(Competition competition)
 	{
-		return new List<Personne>("Ajouter une personne", "p", 
+		return new List<Personne>("Ajouter une personne", "1", 
 				() -> new ArrayList<>(inscriptions.getPersonnes()),
 				(index, element) -> {competition.add(element);}
 				);
@@ -111,10 +105,21 @@ public class Dialogutil {
 	
 	private Menu ajouterEquipeCompetition(Competition competition)
 	{
-		return new List<Equipe>("Ajouter une équipe", "a", 
+		return new List<Equipe>("Ajouter une équipe", "2", 
 				() -> new ArrayList<>(inscriptions.getEquipes()),
 				(index, element) -> {competition.add(element);}
 				);
+	}
+	
+	private Option modifierCompetition(final Competition competition)
+	{
+		return new Option("Modifier compétition", "3", 
+				() -> {competition.setNom(getString("Nouveau nom : "));});
+	}
+	
+	private Option supprimer(Competition competition)
+	{
+		return new Option("Supprimer", "4", () -> {competition.delete();});
 	}
 	
 	         
@@ -123,7 +128,7 @@ public class Dialogutil {
 		Menu menu = new Menu("Gérer les équipes", "2");
 		menu.add(ajouterEquipe());
 		menu.add(afficherEquipes());
-		//menu.add(selectionnerEquipe());
+		menu.add(selectionnerEquipe());
 		menu.addBack("q");
 		return menu;
 	}
@@ -138,6 +143,33 @@ public class Dialogutil {
 		return new Option("Ajouter une équipe", "2", () -> {inscriptions.createEquipe(getString("nom : "));});
 	}
 	
+	private List<Equipe> selectionnerEquipe()
+	{
+		return new List<Equipe>("Sélectionner une equipe", "3", () -> new ArrayList<>(inscriptions.getEquipes()),
+				(element) -> editerEquipe(element));
+	}
+	
+	private Menu editerEquipe(Equipe equipe)
+	{
+		Menu menu = new Menu("Editer " + equipe.getNom());
+		menu.add(modifierEquipe(equipe));
+		menu.add(supprimer(equipe));
+		menu.addBack("q");
+		return menu;
+	}
+	
+	
+	private Option modifierEquipe(final Equipe equipe)
+	{
+		return new Option("Renommer équipe", "1", 
+				() -> {equipe.setNom(getString("Nouveau nom : "));});
+	}
+	
+
+	private Option supprimer(Equipe equipe)
+	{
+		return new Option("Supprimer", "2", () -> {equipe.delete();});
+	}
 
 	
 	private Menu menuPersonnes()
@@ -145,7 +177,7 @@ public class Dialogutil {
 		Menu menu = new Menu("Gérer les personnes","3");
 		menu.add(ajouterPersonne());
 		menu.add(afficherPersonnes());
-		//menu.add(selectionnerPersonne());
+		menu.add(selectionnerPersonne());
 		menu.addBack("q");
 		return menu;
 		
@@ -161,7 +193,37 @@ public class Dialogutil {
 		return new Option("Ajouter une personne", "2", () -> {inscriptions.createPersonne(getString("nom : "),getString("prenom : "),getString("mail : "));});
 	}
 	
+	private List<Personne> selectionnerPersonne()
+	{
+		return new List<Personne>("Sélectionner une personne", "3", 
+				() -> new ArrayList<>(inscriptions.getPersonnes()),
+				(element) -> editerPersonne(element)
+				);
+	}
 	
+	private Menu editerPersonne(Personne personne)
+	{
+		Menu menu = new Menu("Editer " + personne.getNom());
+		menu.add(modifierPersonne(personne));
+		menu.add(supprimer(personne));
+		menu.addBack("q");
+		return menu;
+	}
+	
+	private Option modifierPersonne(final Personne personne)
+	{
+		return new Option("Modifier personne", "1", 
+				() -> {personne.setNom(getString("Nouveau nom : "));
+					   personne.setPrenom(getString("Nouveau prenom : "));
+					   personne.setMail(getString("Nouveau mail : "));});
+	}
+	
+	private Option supprimer(Personne personne)
+	{
+		return new Option("Supprimer", "2", () -> {personne.delete();});
+	}
+
+
 	private Option quitterSansEnregistrer()
 	{
 		return new Option("Quitter sans enregistrer", "a", Action.QUIT);
