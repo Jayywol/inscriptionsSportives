@@ -154,6 +154,8 @@ public class Dialogutil {
 		Menu menu = new Menu("Editer " + equipe.getNom());
 		menu.add(modifierEquipe(equipe));
 		menu.add(supprimer(equipe));
+		menu.add(ajouterMembre(equipe));
+		menu.add(supprimerMembre(equipe));
 		menu.addBack("q");
 		return menu;
 	}
@@ -171,6 +173,21 @@ public class Dialogutil {
 		return new Option("Supprimer", "2", () -> {equipe.delete();});
 	}
 
+	private Menu ajouterMembre(Equipe equipe)
+	{
+		return new List<Personne>("Ajouter un membre", "3", 
+				() -> new ArrayList<>(inscriptions.getPersonnes()),
+				(index, element) -> {equipe.add(element);}
+				);
+	}
+	
+	private Menu supprimerMembre(Equipe equipe)
+	{
+		return new List<Personne>("Supprimer un membre", "4", 
+				() -> new ArrayList<>(equipe.getMembres()),
+				(index, element) -> {equipe.remove(element);}
+				);
+	}
 	
 	private Menu menuPersonnes()
 	{
