@@ -17,7 +17,7 @@ public class Menu {
 			System.out.println("1 : Créer une compétition");
 			System.out.println("2 : Créer une équipe ");
 			System.out.println("3 : Créer un joueur ");
-			
+
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
 			sc.nextLine();
