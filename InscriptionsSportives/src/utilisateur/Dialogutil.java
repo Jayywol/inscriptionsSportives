@@ -126,21 +126,22 @@ public class Dialogutil {
 	private Menu menuEquipes()
 	{
 		Menu menu = new Menu("Gérer les équipes", "2");
-		menu.add(ajouterEquipe());
 		menu.add(afficherEquipes());
+		menu.add(ajouterEquipe());
 		menu.add(selectionnerEquipe());
 		menu.addBack("q");
 		return menu;
 	}
 	
-	private Option afficherEquipes()
-	{
-		return new Option("Afficher les équipes", "l", () -> {System.out.println(inscriptions.getEquipes());});
-	}
-	
+
 	private Option ajouterEquipe()
 	{
-		return new Option("Ajouter une équipe", "2", () -> {inscriptions.createEquipe(getString("nom : "));});
+		return new Option("Ajouter une équipe", "1", () -> {inscriptions.createEquipe(getString("nom : "));});
+	}
+	
+	private Option afficherEquipes()
+	{
+		return new Option("Afficher les équipes", "2", () -> {System.out.println(inscriptions.getEquipes());});
 	}
 	
 	private List<Equipe> selectionnerEquipe()

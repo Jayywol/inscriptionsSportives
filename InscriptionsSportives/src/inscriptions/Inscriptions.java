@@ -12,10 +12,10 @@ import java.util.Date;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-/**
- * Point d'entrée dans l'application, un seul objet de type Inscription
- * permet de gérer les compétitions, candidats (de type equipe ou personne)
- * ainsi que d'inscrire des candidats à des compétition.
+/*
+ * Point d'entree dans l'application, un seul objet de type Inscription
+ * permet de gerer les competitions, candidats
+ * ainsi que d'inscrire des candidats a des competitions
  */
 
 public class Inscriptions implements Serializable
@@ -31,8 +31,8 @@ public class Inscriptions implements Serializable
 	{
 	}
 	
-	/**
-	 * Retourne les compétitions.
+	/*
+	 * Retourne les competitions
 	 * @return
 	 */
 	
@@ -41,8 +41,8 @@ public class Inscriptions implements Serializable
 		return Collections.unmodifiableSortedSet(competitions);
 	}
 	
-	/**
-	 * Retourne tous les candidats (personnes et équipes confondues).
+	/*
+	 * Retourne tous les candidats (personnes ou equipes)
 	 * @return
 	 */
 	
@@ -51,7 +51,7 @@ public class Inscriptions implements Serializable
 		return Collections.unmodifiableSortedSet(candidats);
 	}
 
-	/**
+	/*
 	 * Retourne toutes les personnes.
 	 * @return
 	 */
@@ -65,8 +65,8 @@ public class Inscriptions implements Serializable
 		return Collections.unmodifiableSortedSet(personnes);
 	}
 
-	/**
-	 * Retourne toutes les équipes.
+	/*
+	 * Retourne toutes les equipes
 	 * @return
 	 */
 	
@@ -81,9 +81,9 @@ public class Inscriptions implements Serializable
 
 	
 	
-	/**
-	 * Créée une compétition. Ceci est le seul moyen, il n'y a pas
-	 * de constructeur public dans {@link Competition}.
+	/*
+	 * Creee une competition. Ceci est le seul moyen, il n'y a pas
+	 * de constructeur public dans Competition
 	 * @param nom
 	 * @param dateCloture
 	 * @param enEquipe
@@ -99,10 +99,9 @@ public class Inscriptions implements Serializable
 	}
 	
 
-	/**
-	 * Créée une Candidat de type Personne. Ceci est le seul moyen, il n'y a pas
-	 * de constructeur public dans {@link Personne}.
-
+	/*
+	 * Creee un Candidat de type Personne. Ceci est le seul moyen car il n'y a pas
+	 * de constructeur public dans Personne
 	 * @param nom
 	 * @param prenom
 	 * @param mail
@@ -116,9 +115,9 @@ public class Inscriptions implements Serializable
 		return personne;
 	}
 	
-	/**
-	 * Créée une Candidat de type équipe. Ceci est le seul moyen, il n'y a pas
-	 * de constructeur public dans {@link Equipe}.
+	/*
+	 * Cree un Candidat de type Equipe, Ceci est le seul moyen car il n'y a pas 
+	 * de constructeur public dans Equipe
 	 * @param nom
 	 * @param prenom
 	 * @param mail
@@ -142,10 +141,10 @@ public class Inscriptions implements Serializable
 		candidats.remove(candidat);
 	}
 	
-	/**
-	 * Retourne l'unique instance de cette classe.
-	 * Crée cet objet s'il n'existe déjà.
-	 * @return l'unique objet de type {@link Inscriptions}.
+	/*
+	 * Retourne l'unique instance de cette classe
+	 * Creee cet objet s'il n'existe deja
+	 * @return l'unique objet de type Inscriptions
 	 */
 	
 	public static Inscriptions getInscriptions()
@@ -160,9 +159,9 @@ public class Inscriptions implements Serializable
 		return inscriptions;
 	}
 
-	/**
-	 * Retourne un object inscriptions vide. Ne modifie pas les compétitions
-	 * et candidats déjà existants.
+	/*
+	 * Retourne un objet inscriptions vide. Ne modifie pas les competitions
+	 * et candidats deja existants.
 	 */
 	
 	public Inscriptions reinitialiser()
@@ -171,9 +170,9 @@ public class Inscriptions implements Serializable
 		return getInscriptions();
 	}
 
-	/**
-	 * Efface toutes les modifications sur Inscriptions depuis la dernière sauvegarde.
-	 * Ne modifie pas les compétitions et candidats déjà existants.
+	/*
+	 * Efface toutes les modifications sur Inscriptions depuis la derniere sauvearde
+	 * Ne modifie pas les competitions et candidats deja existants.
 	 */
 	
 	public Inscriptions recharger()
@@ -206,9 +205,9 @@ public class Inscriptions implements Serializable
 		}	
 	}
 	
-	/**
-	 * Sauvegarde le gestionnaire pour qu'il soit ouvert automatiquement 
-	 * lors d'une exécution ultérieure du programme.
+	/*
+	 * Sauvegarde le gestionnaire pour qu'il soit ouvert automatiquement
+	 * lors d'une execution ulterieur du programme
 	 * @throws IOException 
 	 */
 	
