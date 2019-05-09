@@ -126,8 +126,8 @@ public class Dialogutil {
 	private Menu menuEquipes()
 	{
 		Menu menu = new Menu("Gérer les équipes", "2");
-		menu.add(afficherEquipes());
 		menu.add(ajouterEquipe());
+		menu.add(afficherEquipes());
 		menu.add(selectionnerEquipe());
 		menu.addBack("q");
 		return menu;
@@ -193,8 +193,8 @@ public class Dialogutil {
 	private Menu menuPersonnes()
 	{
 		Menu menu = new Menu("Gérer les personnes","3");
-		menu.add(ajouterPersonne());
 		menu.add(afficherPersonnes());
+		menu.add(ajouterPersonne());
 		menu.add(selectionnerPersonne());
 		menu.addBack("q");
 		return menu;
@@ -203,7 +203,7 @@ public class Dialogutil {
 	
 	private Option afficherPersonnes()
 	{
-		return new Option("Afficher les personnes", "l", () -> {System.out.println(inscriptions.getPersonnes());});
+		return new Option("Afficher les personnes", "1", () -> {System.out.println(inscriptions.getPersonnes());});
 	}
 	
 	private Option ajouterPersonne()
@@ -267,11 +267,8 @@ public class Dialogutil {
 	
 	public static void main(String[] args)
 	{
-Inscriptions inscriptions = Inscriptions.getInscriptions();
+		Inscriptions inscriptions = Inscriptions.getInscriptions();
 		Dialogutil personnelConsole = new Dialogutil(inscriptions);
-			personnelConsole.start();
-		
+		personnelConsole.start();
 	}
-	
-	
 }
