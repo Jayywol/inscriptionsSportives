@@ -33,6 +33,8 @@ public class Menu {
 					sc.nextLine();
 					System.out.println("Compétion en équipe : oui/non");
 					String enEquipe = sc.nextLine();
+					System.out.println("Date cloture :");
+					String dateCloture = sc.nextLine();
 					
 					
 					if (enEquipe == "oui") {
