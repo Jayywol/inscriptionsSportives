@@ -18,7 +18,7 @@ public class Passerelle
 	private static SessionFactory sessionFactory = null;
 	private static final String CONF_FILE = "hibernate/relations.cfg.xml";
 	private static Transaction transaction = null;
-	
+
 	static void initHibernate()
 	{
 		try

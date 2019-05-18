@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * Candidat à un événement sportif, soit une personne physique, soit une équipe.
+/*
+ * Candidat a un evenement sportif, soit une personne physique, soit une equipe
  *
  */
 
@@ -24,8 +24,8 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 		competitions = new TreeSet<>();
 	}
 
-	/**
-	 * Retourne le nom du candidat.
+	/*
+	 * Retourne le nom du candidat
 	 * @return
 	 */
 	
@@ -34,8 +34,8 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 		return nom;
 	}
 
-	/**
-	 * Modifie le nom du candidat.
+	/*
+	 * Modifie le nom du candidat
 	 * @param nom
 	 */
 	
@@ -44,8 +44,8 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 		this.nom = nom;
 	}
 
-	/**
-	 * Retourne toutes les compétitions auxquelles ce candidat est inscrit.s
+	/*
+	 * Retourne toutes les competitions auxquelles ce candidat est inscrit
 	 * @return
 	 */
 
@@ -64,8 +64,8 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 		return competitions.remove(competition);
 	}
 
-	/**
-	 * Supprime un candidat de l'application.
+	/*
+	 * Supprime un candidat de l'application
 	 */
 	
 	public void delete()
@@ -84,6 +84,6 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 	@Override
 	public String toString()
 	{
-		return "\n" + getNom() + " -> inscrit à " + getCompetitions();
+		return "\n" + getNom() + " -> inscrit a� " + getCompetitions();
 	}
 }

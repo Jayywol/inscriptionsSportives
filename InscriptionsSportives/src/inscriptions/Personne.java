@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * Représente une personne physique pouvant s'inscrire à une compétition.
+/*
+ * Represente une personne physique pouvant s'inscrire a une competition
  */
 
 public class Personne extends Candidat
@@ -22,8 +22,8 @@ public class Personne extends Candidat
 		equipes = new TreeSet<>();
 	}
 
-	/**
-	 * Retourne le prénom de la personne.
+	/*
+	 * Retourne le prenom de la personne
 	 * @return
 	 */
 	
@@ -32,8 +32,8 @@ public class Personne extends Candidat
 		return prenom;
 	}
 
-	/**
-	 * Modifie le prénom de la personne.
+	/*
+	 * Modifie le prenom de la personne
 	 * @param prenom
 	 */
 	
@@ -42,8 +42,8 @@ public class Personne extends Candidat
 		this.prenom = prenom;
 	}
 
-	/**
-	 * Retourne l'adresse électronique de la personne.
+	/*
+	 * Retourne l'adresse mel de la personne
 	 * @return
 	 */
 	
@@ -52,8 +52,8 @@ public class Personne extends Candidat
 		return mail;
 	}
 
-	/**
-	 * Modifie l'adresse électronique de la personne.
+	/*
+	 * Modifie l'adresse mel de la personne
 	 * @param mail
 	 */
 	
@@ -62,8 +62,8 @@ public class Personne extends Candidat
 		this.mail = mail;
 	}
 
-	/**
-	 * Retoure les équipes dont cette personne fait partie.
+	/*
+	 * Retourne les equipes dont cette personne fait partie
 	 * @return
 	 */
 	

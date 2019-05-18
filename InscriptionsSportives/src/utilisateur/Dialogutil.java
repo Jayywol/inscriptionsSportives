@@ -133,14 +133,15 @@ public class Dialogutil {
 		return menu;
 	}
 	
-	private Option afficherEquipes()
-	{
-		return new Option("Afficher les équipes", "l", () -> {System.out.println(inscriptions.getEquipes());});
-	}
-	
+
 	private Option ajouterEquipe()
 	{
-		return new Option("Ajouter une équipe", "2", () -> {inscriptions.createEquipe(getString("nom : "));});
+		return new Option("Ajouter une équipe", "1", () -> {inscriptions.createEquipe(getString("nom : "));});
+	}
+	
+	private Option afficherEquipes()
+	{
+		return new Option("Afficher les équipes", "2", () -> {System.out.println(inscriptions.getEquipes());});
 	}
 	
 	private List<Equipe> selectionnerEquipe()
@@ -192,8 +193,8 @@ public class Dialogutil {
 	private Menu menuPersonnes()
 	{
 		Menu menu = new Menu("Gérer les personnes","3");
-		menu.add(ajouterPersonne());
 		menu.add(afficherPersonnes());
+		menu.add(ajouterPersonne());
 		menu.add(selectionnerPersonne());
 		menu.addBack("q");
 		return menu;
@@ -202,7 +203,7 @@ public class Dialogutil {
 	
 	private Option afficherPersonnes()
 	{
-		return new Option("Afficher les personnes", "l", () -> {System.out.println(inscriptions.getPersonnes());});
+		return new Option("Afficher les personnes", "1", () -> {System.out.println(inscriptions.getPersonnes());});
 	}
 	
 	private Option ajouterPersonne()
@@ -266,11 +267,8 @@ public class Dialogutil {
 	
 	public static void main(String[] args)
 	{
-Inscriptions inscriptions = Inscriptions.getInscriptions();
+		Inscriptions inscriptions = Inscriptions.getInscriptions();
 		Dialogutil personnelConsole = new Dialogutil(inscriptions);
-			personnelConsole.start();
-		
+		personnelConsole.start();
 	}
-	
-	
 }
